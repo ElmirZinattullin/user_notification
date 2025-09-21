@@ -17,7 +17,7 @@
 
 1. **Клонируйте репозиторий:**
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/ElmirZinattullin/user_notification.git
     cd <project-directory>
     ```
 
@@ -225,3 +225,12 @@ class ProcessingNotificationMethodInterface(NotificationMethodInterface, ABC):
   ```plaintext
   app/notification.py
   ```
+
+## 👥 Автор
+
+- **Зинаттуллин Эльмир** - [GitHub](https://github.com/ElmirZinattullin) - TG @Mirskyi - *Разработчик backend*
+
+---
+
+**Версия документации:** 1.0.0  
+**Последнее обновление:** 2025-09-21
