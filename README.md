@@ -18,7 +18,7 @@
 1. **Клонируйте репозиторий:**
     ```bash
     git clone https://github.com/ElmirZinattullin/user_notification.git
-    cd <project-directory>
+    cd user_notification
     ```
 
 2. **Настройте окружение:**
