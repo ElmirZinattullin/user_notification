@@ -1,0 +1,39 @@
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - celery_network
+
+  celery-worker:
+    build: .
+    command: uv run celery -A app.celery:app worker --loglevel=info --concurrency=4
+    volumes:
+      - ./app/notification_logger:/app/app/notification_logger
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    networks:
+      - celery_network
+
+  app:
+    build: .
+    command: uv run uvicorn app.fastapi_app:app --host 0.0.0.0 --port 8000 --workers 4
+    env_file:
+      - .env
+    networks:
+      - celery_network
+    ports:
+      - 8000:8000
+
+volumes:
+  redis_data:
+
+networks:
+  celery_network:
+    driver: bridge
+
